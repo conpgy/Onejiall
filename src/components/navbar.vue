@@ -1,9 +1,11 @@
 <template>
     <div id="header">
-        <span class="slogan"> {{ title }} </span>
+        <span class="slogan"><router-link to="/">{{ title }}</router-link></span>
         <ul id="nav">
-            <li><a href="/live">直播间</a></li>
-            <li><a href="/login">登录</a></li>
+            <li><router-link to="/live">直播间</router-link></li>
+            <li><router-link to="/blog">博客</router-link></li>
+            <li><router-link to="/about">关于</router-link></li>
+            <li><router-link to="/login">登录</router-link></li>
         </ul>
     </div>
 </template>

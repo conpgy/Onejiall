@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <header-component />
-    <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930505.png" />
-    <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930500.png" />
-    <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930502.png" />
-    <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930503.png" />
+    <navbar />
+    <div class="container">
+      <router-view />
+    </div>
+
   </div>
 </template>
 
 <script>
 
-import headerComponent from './components/header.vue'
+import Navbar from './components/navbar.vue'
 
 export default {
   name: 'app',
@@ -20,7 +20,7 @@ export default {
     }
   },
   components:{
-    'headerComponent':headerComponent,
+    Navbar
   }
 }
 </script>
