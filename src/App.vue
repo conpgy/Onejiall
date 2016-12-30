@@ -37,6 +37,10 @@ body {
   padding: 0;
 }
 
+.container {
+  padding:20px;
+}
+
 h1, h2 {
   font-weight: normal;
 }
@@ -53,14 +57,6 @@ li {
 
 a {
   color: #42b983;
-}
-
-img.fun {
-  width:800px;
-  height:600px;
-  display:block;
-  margin:auto;
-  padding-top:20px;
 }
 
 </style>

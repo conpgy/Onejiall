@@ -1,5 +1,6 @@
 <template>
     <div id="home">
+        <div style="font-size:20px;color:orange;">Just for fun.</div>
         <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930505.png" />
         <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930500.png" />
         <img class="fun" src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/930502.png" />
