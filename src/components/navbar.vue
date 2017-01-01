@@ -5,7 +5,8 @@
             <li><router-link to="/live">直播间</router-link></li>
             <li><router-link to="/blog">博客</router-link></li>
             <li><router-link to="/about">关于</router-link></li>
-            <li><router-link to="/login">登录</router-link></li>
+            <li v-if="isLogin">Welcome, {{nickname}}</li>
+            <li v-else><router-link to="/login">登录</router-link></li>
         </ul>
     </div>
 </template>
@@ -15,12 +16,14 @@
     }
 </style>
 <script>
-    export default{
-        data(){
-            return{
-                title:'一即一切,一切即一'
+    export default {
+        props: ['isLogin',"nickname"],
+        data() {
+            return {
+                title: '一即一切,一切即一'
             }
-        }
+        },
+        
     }
 </script>
 

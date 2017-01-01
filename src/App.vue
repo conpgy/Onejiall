@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar />
+    <navbar :is-login="isLogin" :nickname="nickname" />
     <div class="container">
       <router-view />
     </div>
@@ -11,6 +11,7 @@
 <script>
 
 import Navbar from './components/navbar.vue'
+import {mapState} from 'vuex'
 
 export default {
   name: 'app',
@@ -19,8 +20,18 @@ export default {
       msg: '一即一切,一切即一'
     }
   },
-  components:{
-    Navbar
+  created: function() {
+    if(localStorage && localStorage.getItem("nickname")) {
+      this.$store.commit('updateNickname', localStorage.getItem('nickname'))
+      this.$store.commit('updateLoginStatus', true)
+    }
+  },
+  computed: mapState([
+      'isLogin',
+	  'nickname'
+  ]),
+  components: {
+	  Navbar
   }
 }
 </script>

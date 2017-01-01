@@ -22,12 +22,41 @@
             <div class="live-title">大帅哥的直播间</div>
         </div>
 
+
+        <div>
+            <textarea id="chat-area" readonly></textarea><br />
+            <input type="text" id="msg" />
+            <button onclick="sendMsg()">发送</button>
+        </div>
+
     </div>
 </template>
 
 <script>
     export default {
     }
+
+    // var ws = new WebSocket("ws://localhost:8092/chat")
+    // ws.onopen = function() {
+    //     console.log("websocket opened")
+    // }
+
+    // ws.onmessage = function(message) {
+    //     console.log("message: " + message)
+    // }
+
+    // ws.onclose = function() {
+    //     console.log("websocket closed.")
+    // }
+
+    // ws.onerror = function() {
+    //     console.log("websocket: errror")
+    // }
+
+    // function sendMsg() {
+    //     ws.send("hello")
+    // }
+
 </script>
 
 <style scoped>
@@ -44,4 +73,10 @@
     .anchor-wrapper {
         margin-bottom: 40px;
     }
+
+    #chat-area {
+        width: 300px;
+        height: 200px;
+    }
+
 </style>
