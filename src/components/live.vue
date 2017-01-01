@@ -22,18 +22,37 @@
             <div class="live-title">大帅哥的直播间</div>
         </div>
 
-
-        <div>
-            <textarea id="chat-area" readonly></textarea><br />
-            <input type="text" id="msg" />
-            <button onclick="sendMsg()">发送</button>
+        <div class="message-section">
+            <ul class="message-list" ref="list">
+                <message v-for="message in messages" :key="message.id" :message="message"></message>
+            </ul>
+            <textarea class="message-composer" @keyup.enter="sendMessage"></textarea>
         </div>
-
     </div>
 </template>
 
 <script>
+import Message from './message.vue'
+import { mapGetters } from 'vuex'
+
     export default {
+        components: { Message },
+        computed: {
+            ...mapGetters({
+                messages: 'currentMessages'
+            })
+        },
+        methods: {
+            sendMessage(e) {
+                const text = e.target.value
+                if(text.trim()) {
+                    this.$store.dispatch('sendMessage', {
+                        text
+                    })
+                    e.target.value = ''
+                }
+            }
+        }
     }
 
     // var ws = new WebSocket("ws://localhost:8092/chat")
@@ -78,5 +97,33 @@
         width: 300px;
         height: 200px;
     }
+
+.message-list {
+    border: 1px solid #ccf;
+    font-size: 16px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.message-section {
+    width: 50%;
+}
+
+.message-list-item {
+    list-style: none;
+    padding: 12px 14px 14px;
+}
+
+
+.message-composer {
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 5em;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0 0;
+}
 
 </style>

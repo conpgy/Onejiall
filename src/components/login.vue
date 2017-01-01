@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import * as types from '../store/mutation-types'
 
     export default {
         data() {
@@ -28,8 +29,9 @@
                     localStorage.setItem('nickname', this.nickname)
                 }
 
-                this.$store.commit('updateNickname', this.nickname)
-                this.$store.commit('updateLoginStatus', true)
+                this.$store.commit(types.LOGIN_SUCCESS)
+                // this.$store.commit('updateNickname', this.nickname)
+                // this.$store.commit('updateLoginStatus', true)
                 this.$router.push("/")
             }
         }

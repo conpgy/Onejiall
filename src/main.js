@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import App from './App.vue'
+import store from './store'
 import Home from './components/home.vue'
 import Live from './components/live.vue'
 import Blog from './components/blog.vue'
@@ -11,6 +12,10 @@ import Login from './components/login.vue'
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
+Vue.filter('time', timestamp => {
+  return new Date(timestamp).toLocaleTimeString()
+})
+
 const routes = [
   {path: '/', component: Home},
   {path: '/blog', component: Blog},
@@ -18,22 +23,6 @@ const routes = [
   {path: '/about', component: About},
   {path: '/login', component: Login}
 ]
-
-const store = new Vuex.Store({
-	state: {
-		isLogin: false,
-		nickname: ''
-	},
-	mutations: {
-		updateLoginStatus(state, isLogin) {
-			state.isLogin = isLogin
-		},
-		updateNickname(state, nickname) {
-			state.nickname = nickname
-		}
-	}
-})
-
 
 const router = new VueRouter({routes})
 

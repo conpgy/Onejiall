@@ -12,6 +12,7 @@
 
 import Navbar from './components/navbar.vue'
 import {mapState} from 'vuex'
+import * as types from './store/mutation-types'
 
 export default {
   name: 'app',
@@ -22,8 +23,7 @@ export default {
   },
   created: function() {
     if(localStorage && localStorage.getItem("nickname")) {
-      this.$store.commit('updateNickname', localStorage.getItem('nickname'))
-      this.$store.commit('updateLoginStatus', true)
+      this.$store.commit(types.LOGIN_SUCCESS)
     }
   },
   computed: mapState([
@@ -56,18 +56,5 @@ h1, h2 {
   font-weight: normal;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 
 </style>
