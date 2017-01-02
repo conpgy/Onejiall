@@ -47,34 +47,13 @@ import { mapGetters } from 'vuex'
                 const text = e.target.value
                 if(text.trim()) {
                     this.$store.dispatch('sendMessage', {
-                        text
+                        text, "nickname":this.$store.state.nickname
                     })
                     e.target.value = ''
                 }
             }
         }
     }
-
-    // var ws = new WebSocket("ws://localhost:8092/chat")
-    // ws.onopen = function() {
-    //     console.log("websocket opened")
-    // }
-
-    // ws.onmessage = function(message) {
-    //     console.log("message: " + message)
-    // }
-
-    // ws.onclose = function() {
-    //     console.log("websocket closed.")
-    // }
-
-    // ws.onerror = function() {
-    //     console.log("websocket: errror")
-    // }
-
-    // function sendMsg() {
-    //     ws.send("hello")
-    // }
 
 </script>
 
