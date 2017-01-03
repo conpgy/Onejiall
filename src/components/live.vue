@@ -26,7 +26,13 @@
             <ul class="message-list" ref="list">
                 <message v-for="message in messages" :key="message.id" :message="message"></message>
             </ul>
-            <textarea class="message-composer" @keyup.enter="sendMessage"></textarea>
+            <div class="message-send-wrapper">
+                <button class="message-send" @click="sendMessage()">发送</button>
+                <div class="message-composer-wrap">
+                    <textarea v-model="inputMessage" class="message-composer" maxlength=100 @keyup.enter="sendMessage" placeholder="输入消息, 按Enter发送"></textarea>
+                </div>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -36,21 +42,35 @@ import Message from './message.vue'
 import { mapGetters } from 'vuex'
 
     export default {
+        data(){
+            return {
+                inputMessage: ''
+            }
+        },
         components: { Message },
         computed: {
             ...mapGetters({
-                messages: 'currentMessages'
+                messages: 'currentMessages',
+                lastMessage: 'lastMessage'
             })
         },
         methods: {
             sendMessage(e) {
-                const text = e.target.value
+                const text = this.inputMessage
                 if(text.trim()) {
                     this.$store.dispatch('sendMessage', {
                         text, "nickname":this.$store.state.nickname
                     })
-                    e.target.value = ''
+                    this.inputMessage = ''
                 }
+            }
+        },
+        watch: {
+            'lastMessage': function() {
+                this.$nextTick(() => {
+                    const ul = this.$refs.list
+                    ul.scrollTop = ul.scrollHeight
+                })
             }
         }
     }
@@ -95,14 +115,36 @@ import { mapGetters } from 'vuex'
     padding: 12px 14px 14px;
 }
 
+.message-send-wrapper {
+    height:60px;
+    margin-top:20px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    outline: none;
+}
+
+.message-composer-wrap {
+    margin-right: 80px;
+
+}
 
 .message-composer {
     box-sizing: border-box;
     font-size: 14px;
-    height: 5em;
-    width: 100%;
     padding: 10px;
-    margin: 20px 0 0;
+    resize: none;
+    width:100%;
+    border: none;
+    outline: none;
+}
+
+.message-send {
+    float:right;
+    width:80px;
+    height:100%;
+    border: none;
+    outline: none;
+    color: blue;
 }
 
 </style>

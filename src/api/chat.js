@@ -71,8 +71,12 @@ const chatApi = {
             timestamp,
             nickname
         }
-        let jsonString = JSON.stringify(message)
-        this.socket.send(jsonString)
+
+        if(this.isConnect) {
+            let jsonString = JSON.stringify(message)
+            this.socket.send(jsonString)
+        }
+        
     }
 }
 

@@ -21,12 +21,12 @@ export function createChatApiPlugin() {
 }
 
 const chatPlugin = createChatApiPlugin()
-console.log(chatPlugin)
 
 export default new Vuex.Store({
     state: {
 		isLogin: false,
 		nickname: '',
+        lastMessage: null,
         messages: {
             /* id: {id,nickname, text, timestamp} */
         }

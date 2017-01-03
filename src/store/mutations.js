@@ -18,4 +18,5 @@ export default {
 
 function addMessage(state, message) {
     set(state.messages, message.id, message)
+    state.lastMessage = message
 }
