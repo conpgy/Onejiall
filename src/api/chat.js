@@ -8,7 +8,6 @@ const chatApi = {
     messageCallback: null,
     onMessage: function(callback) {
         console.log("onMessage:")
-        console.log(callback)
         this.messageCallback = callback
     },
 

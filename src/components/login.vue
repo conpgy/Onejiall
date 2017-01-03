@@ -30,8 +30,6 @@ import * as types from '../store/mutation-types'
                 }
 
                 this.$store.commit(types.LOGIN_SUCCESS)
-                // this.$store.commit('updateNickname', this.nickname)
-                // this.$store.commit('updateLoginStatus', true)
                 this.$router.push("/")
             }
         }

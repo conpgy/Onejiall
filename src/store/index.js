@@ -29,7 +29,19 @@ export default new Vuex.Store({
         lastMessage: null,
         messages: {
             /* id: {id,nickname, text, timestamp} */
-        }
+        },
+        videos: [
+            {
+                id: 0,
+                img: "http://onejiall.oss-cn-beijing.aliyuncs.com/picture/fun/confused.png",
+                src: "http://60.205.190.199:80/hls/demo.m3u8"
+            },
+            {
+                id: 1,
+                img: "http://onejiall.oss-cn-beijing.aliyuncs.com/picture/mimi.png",
+                src: "http://onejiall.oss-cn-beijing.aliyuncs.com/info/videos/story.mp4"
+            }
+        ]
 	},
     mutations,
     actions,

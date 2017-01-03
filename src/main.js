@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import store from './store'
 import Home from './components/home.vue'
+import LiveList from './components/liveList.vue'
 import Live from './components/live.vue'
 import Blog from './components/blog.vue'
 import About from './components/about.vue'
@@ -19,9 +20,10 @@ Vue.filter('time', timestamp => {
 const routes = [
   {path: '/', component: Home},
   {path: '/blog', component: Blog},
-  {path: '/live', component: Live},
+  {path: '/liveList', component: LiveList},
   {path: '/about', component: About},
-  {path: '/login', component: Login}
+  {path: '/login', component: Login},
+  {path: '/live', component: Live}
 ]
 
 const router = new VueRouter({routes})

@@ -2,7 +2,7 @@
     <div id="header">
         <span class="slogan"><router-link to="/">{{ title }}</router-link></span>
         <ul id="nav">
-            <li><router-link to="/live">直播间</router-link></li>
+            <li><router-link to="/liveList">直播间</router-link></li>
             <li><router-link to="/blog">博客</router-link></li>
             <li><router-link to="/about">关于</router-link></li>
             <li v-if="isLogin">Welcome, {{nickname}}</li>
