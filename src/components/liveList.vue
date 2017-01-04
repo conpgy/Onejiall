@@ -1,18 +1,20 @@
 <template>
     <div id="list-list">
         <div class="live-wrap">
-            <div class="live-item" @click="gotoRoom(1)">
-                <img width=400px height=250px src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/fun/confused.png" />
-            </div>
-            <div class="live-item" @click="gotoRoom(2)">
-                <img width=400px height=250px src="http://onejiall.oss-cn-beijing.aliyuncs.com/picture/mimi.png" />
-            </div>
+            <template v-for="video in videos">
+                <div class="live-item" @click="gotoRoom(video)">
+                    <img width=400px height=250px v-bind:src="video.img" />
+                    <div>{{ video.title }}</div>
+                </div>
+                
+            </template>
         </div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
     export default {
 
@@ -20,12 +22,14 @@ import { mapGetters } from 'vuex'
             ...mapGetters({
                 messages: 'currentMessages',
                 lastMessage: 'lastMessage'
+            }),
+            ...mapState({
+                videos: state => state.videos
             })
         },
         methods: {
-            gotoRoom: function(roomId) {
-                console.log("roomId: " + roomId)
-                this.$router.push("/live")
+            gotoRoom: function(video) {
+                this.$router.replace({name:"live", params: video})
             }
         }
     }

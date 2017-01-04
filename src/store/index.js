@@ -34,12 +34,14 @@ export default new Vuex.Store({
             {
                 id: 0,
                 img: "http://onejiall.oss-cn-beijing.aliyuncs.com/picture/fun/confused.png",
-                src: "http://60.205.190.199:80/hls/demo.m3u8"
+                src: "http://60.205.190.199:80/hls/demo.m3u8",
+                title: "精彩的相声表演"
             },
             {
                 id: 1,
                 img: "http://onejiall.oss-cn-beijing.aliyuncs.com/picture/mimi.png",
-                src: "http://onejiall.oss-cn-beijing.aliyuncs.com/info/videos/story.mp4"
+                src: "http://onejiall.oss-cn-beijing.aliyuncs.com/info/videos/story.mp4",
+                title: "大帅哥的直播间"
             }
         ]
 	},

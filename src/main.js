@@ -20,10 +20,14 @@ Vue.filter('time', timestamp => {
 const routes = [
   {path: '/', component: Home},
   {path: '/blog', component: Blog},
-  {path: '/liveList', component: LiveList},
+  {path: '/live-list', component: LiveList},
   {path: '/about', component: About},
   {path: '/login', component: Login},
-  {path: '/live', component: Live}
+  {
+    path: '/live/:id',
+    name: 'live',
+    component: Live
+  }
 ]
 
 const router = new VueRouter({routes})
